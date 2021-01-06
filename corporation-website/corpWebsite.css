@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+@-webkit-keyframes dropItemAnim {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-4rem);
+            transform: translateY(-4rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+
+@keyframes dropItemAnim {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-4rem);
+            transform: translateY(-4rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem 8rem;
+  color: #E7E6EA;
+  width: 100vw;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
+  -webkit-filter: drop-shadow(-1px 6px 3px #212828);
+          filter: drop-shadow(-1px 6px 3px #212828);
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.1s;
+          animation-delay: 4.1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+}
+
+.logo__icon {
+  width: 3rem;
+  margin-right: 0.4rem;
+}
+
+.logo__text {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-family: 'Goldman', cursive;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.nav__dropList {
+  display: none;
+  position: absolute;
+  background-color: #677b7b;
+  -webkit-filter: drop-shadow(0px 2px 3px #212828);
+          filter: drop-shadow(0px 2px 3px #212828);
+}
+
+.nav__items {
+  margin: 0 1rem;
+  list-style-type: none;
+  cursor: pointer;
+  -webkit-filter: drop-shadow(-1px 6px 3px #212828);
+          filter: drop-shadow(-1px 6px 3px #212828);
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
+}
+
+.nav__items:nth-child(1) {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.2s;
+          animation-delay: 4.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+}
+
+.nav__items:nth-child(2) {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.3s;
+          animation-delay: 4.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+}
+
+.nav__items:nth-child(3) {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.4s;
+          animation-delay: 4.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+}
+
+.nav__items:nth-child(4) {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.5s;
+          animation-delay: 4.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+}
+
+.nav__items:nth-child(5) {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.6s;
+          animation-delay: 4.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+}
+
+.nav__items:hover {
+  -webkit-filter: drop-shadow(0px 2px 3px #212828);
+          filter: drop-shadow(0px 2px 3px #212828);
+}
+
+.nav__items--features:hover .nav__dropList {
+  display: block;
+}
+
+.nav__dropItems {
+  list-style-type: none;
+  padding: 0.5rem 2rem;
+}
+
+.nav__dropItems:hover {
+  background-color: #4b5959;
+}
+
+.nav__dropArrow {
+  font-size: 0.4rem;
+  vertical-align: middle;
+}
+
+.wrapButtonHeader {
+  -webkit-filter: drop-shadow(-1px 6px 3px #212828);
+          filter: drop-shadow(-1px 6px 3px #212828);
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+}
+
+.wrapButtonHeader:hover {
+  -webkit-filter: drop-shadow(0px 2px 3px #212828);
+          filter: drop-shadow(0px 2px 3px #212828);
+}
+
+.button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.8rem;
+  background-color: #677b7b;
+  -webkit-clip-path: polygon(20% 0%, 90% 1%, 100% 30%, 100% 100%, 80% 100%, 10% 100%, 0 70%, 0 0);
+          clip-path: polygon(20% 0%, 90% 1%, 100% 30%, 100% 100%, 80% 100%, 10% 100%, 0 70%, 0 0);
+  cursor: pointer;
+}
+
+.button--header {
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 4.7s;
+          animation-delay: 4.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: dropItemAnim;
+          animation-name: dropItemAnim;
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+}
+
+.button--white {
+  background-color: #E7E6EA;
+  color: #1a1a1a;
+  margin-top: 4rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+}
+
+.main {
+  padding: 1rem 8rem;
+  color: #E7E6EA;
+  width: 60vw;
+  position: relative;
+  top: 1.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main__slogan {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.main__sloganOne {
+  position: relative;
+  z-index: -2;
+}
+
+.main__sloganTwo {
+  position: relative;
+  z-index: -5;
+}
+
+.main__text {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  position: relative;
+}
+
+.buttonVideo__play, .buttonVideo__pause {
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  background-color: rgba(80, 95, 95, 0.4);
+  color: #E7E6EA;
+  text-align: center;
+  position: absolute;
+  right: 10rem;
+  top: 30rem;
+  cursor: pointer;
+  display: none;
+}
+
+.buttonVideo__pause {
+  display: block;
+}
+
+.scrollIndicator {
+  color: #E7E6EA;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  top: 4rem;
+}
+
+.scrollIndicator__icon {
+  font-size: 2rem;
+}
+
+.bgVideo {
+  position: fixed;
+  width: 100%;
+  z-index: 0;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  z-index: -5;
+}
+
+.partOfHeaderAnime1 {
+  background-color: #505F5F;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 10;
+}
+
+.partOfHeaderAnime2 {
+  background-color: #505F5F;
+  position: absolute;
+  height: 18rem;
+  width: 100vw;
+  left: 0;
+  top: 0rem;
+  z-index: -3;
+}
+
+.partOfHeaderAnime3 {
+  background-color: #505F5F;
+  position: absolute;
+  height: 35rem;
+  width: 100vw;
+  left: 0;
+  top: 0rem;
+  display: none;
+  z-index: -1;
+}
+
+.logoIntro {
+  display: none;
+}
+
+.logoIntro__icon {
+  width: 3rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 11;
+}
+
+.logoIntro__text {
+  font-family: 'Goldman', cursive;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 11;
+}
+/*# sourceMappingURL=corpWebsite.css.map */
