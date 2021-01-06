@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="places.css">
+    <script src="https://kit.fontawesome.com/514dd7d2dc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="phone">
+            <div class="phone__speaker"></div>
+            <div class="notifBar">
+                <div class="notifBar__time"></div>
+                <div class="notifBar__camera"></div>
+                <div class="notifBar__states">
+                    <i class="notifBar__item fas fa-signal"></i>
+                    <i class="notifBar__item fas fa-wifi"></i>
+                    <i class="notifBar__item fas fa-battery-three-quarters"></i>    
+                </div>
+            </div>
+            <!-- sign in screen -->         
+            <div class="screenSignIn">
+                <div class="logo">
+                    <div class="logo__icon">
+                        <i class="logo__icon--heart fas fa-heart"></i>
+                        <i class="logo__icon--marker fas fa-map-marker"></i>
+                    </div>
+                    <div class="logo__title">Places</div>
+                    <div class="logo__slogan">Remember the place you love</div>
+                </div>
+                <div class="connect">
+                    <div class="connect__signButton">Sign in</div>
+                    <div class="connect__createAccount">Create account</div>
+                </div>    
+            </div>
+
+            <!--screen favorite menu  -->
+            <div class="screenFavorite">
+                <div class="screenFavorite__header">
+                    <div class="screenFavorite__title">My favorite <br> Places</div>
+                    <div class="screenFavorite__avatarBox">
+                        <img class="screenFavorite__avatar" src="https://kevksar.github.io/images/kev.jpg" alt="">
+                        <div class="screenFavorite__badgeNotif">2</div>
+                    </div>
+                </div>             
+                <div class="screenFavorite__categories">             
+                    <div id="btnRestaurant" class="buttonCategory">
+                        <div class="buttonCategory__icon-cat">
+                            <i class="buttonCategory__icon fas fa-utensils"></i>
+                            <div class="buttonCategory__title">Restaurant</div>
+                        </div>
+                        <div class="buttonCategory__numPlaces">9</div>
+                    </div>
+                    <div class="buttonCategory">
+                        <div class="buttonCategory__icon-cat">
+                            <i class="buttonCategory__icon fas fa-shopping-bag"></i>
+                            <div class="buttonCategory__title">Shopping</div>
+                        </div>
+                        <div class="buttonCategory__numPlaces">6</div>
+                    </div>
+                    <div class="buttonCategory">
+                        <div class="buttonCategory__icon-cat">
+                            <i class="buttonCategory__icon fas fa-cocktail"></i>
+                            <div class="buttonCategory__title">Pub</div>
+                        </div>
+                        <div class="buttonCategory__numPlaces">12</div>
+                    </div>
+                    <div class="buttonCategory">
+                        <div class="buttonCategory__icon-cat">
+                            <i class="buttonCategory__icon fas fa-city"></i>
+                            <div class="buttonCategory__title">London</div>
+                        </div>
+                        <div class="buttonCategory__numPlaces">7</div>
+                    </div>
+                    <div class="buttonCategory">
+                        <div class="buttonCategory__icon-cat">
+                            <i class="buttonCategory__icon fas fa-city"></i>
+                            <div class="buttonCategory__title">Brussels</div>
+                        </div>
+                        <div class="buttonCategory__numPlaces">11</div>
+                    </div>   
+                    <div class="screenFavorite__addFavorite" >+ Add favorite place</div>                
+                </div>
+            </div>
+
+            <!-- start screen place -->
+            <div class="screenPlace">
+                <div class="screenPlace__mapBox">
+                    <iframe class="screenPlace__map" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d85905.722571914!2d4.340056531915979!3d50.78696190012482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLe%20Chalet%20de%20la%20For%C3%AAt!5e0!3m2!1sfr!2sbe!4v1609077030807!5m2!1sfr!2sbe" width="" height="" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <div class="screenPlace__category">
+                    <div class="screenPlace__iconBox">
+                        <i class="screenPlace__icon fas fa-utensils"></i>
+                    </div>
+                    <div class="screenPlace__titleCategory">Restaurant</div>
+                </div>
+                <div class="screenPlace__content">
+                    <div class="screenPlace__title">Le Chalet de la Forêt</div>
+                    <div class="screenPlace__adress">Drève de Lorraine 43, 1180 Bruxelles</div>
+                    <div class="screenPlace__tags">
+                        <div class="screenPlace__tag">Gastronomy</div>
+                        <div class="screenPlace__tag">French</div>
+                        <div class="screenPlace__tag">Brussels</div>
+                    </div>   
+                    <div class="slideBox">
+                        <img class="slideBox__image slideBox__image--active" src="https://kevksar.github.io/images/chalet170.jpg" alt="">
+                        <img class="slideBox__image" src="https://kevksar.github.io/images/Batisse-nuit.jpg" alt="">
+                        <img class="slideBox__image" src="https://kevksar.github.io/images/chalet142.jpg" alt="">
+                        <img class="slideBox__image" src="https://kevksar.github.io/images/chalet186.jpg" alt="">
+                        <div class="slideBox__buttons">
+                            <div class="slideBox__buttonLeft"></div>
+                            <div class="slideBox__buttonRight"></div>    
+                        </div>
+                    </div> 
+                    <div class="slideBox__dots">
+                        <div class="slideBox__dot slideBox__dot--active"></div>
+                        <div class="slideBox__dot"></div>
+                        <div class="slideBox__dot"></div>
+                        <div class="slideBox__dot"></div>
+                    </div>               
+                </div>
+            </div>
+
+            <div class="nav">
+                <i id="buttonMenu" class="nav__icon fas fa-bars"></i>
+                <i id="buttonHome" class="nav__icon far fa-square"></i>
+                <i id="buttonBack" class="nav__icon fas fa-chevron-left"></i>              
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

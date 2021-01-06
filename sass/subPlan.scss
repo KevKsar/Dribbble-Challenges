@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//media queries 
+$breakpoints: (
+    phone-only-small: 300px,
+    phone-only: 400px,
+    tablet-portrait-up: 600px,
+);
+@mixin for-phone-only-small {
+    @media (max-width: map-get($breakpoints, phone-only )) { @content; }
+}
+@mixin for-phone-only {
+    @media (max-width: map-get($breakpoints, phone-only )) { @content; }
+}
+@mixin for-tablet-portrait-up {
+    @media (max-width: map-get($breakpoints, tablet-portrait-up )) { @content; }
+}
+
+//variables colors
+$blue:    #3684f8 ;
+$text-primary:#adb5bd;
+$text-secondary:#f8f9fa;
+$bg-container:#16181a;
+$bg-card:  #343a40;
+$bg-body:#343a40;
+
+//styles mixin
+@mixin border-radius(){
+    border-radius: 0.3rem;
+}
+
+body{
+    display: grid;
+    place-content: center center;
+    color: $text-primary;
+    font-family: sans-serif;
+    background-color: $bg-body;
+}
+.container{
+    background-color: $bg-container;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    padding: 3rem;
+    @include border-radius();
+    @include for-tablet-portrait-up{
+        grid-template-columns: 1fr;
+        gap: 2rem 0;
+    }
+    @include for-phone-only(){
+        padding: 1rem;
+    }
+}
+.nav{
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-self: center;
+    @include border-radius();
+    background-color: black;
+    &__button{
+        text-align: center;
+        padding: 0.5rem 1rem;
+        background-color: black;
+        color: $text-primary;
+        cursor: pointer;
+        @include border-radius();
+        transition: all 0.3s linear;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.212);
+        }
+        &--active{
+            background-color: rgba(255, 255, 255, 0.212);
+        }
+        &--biannually{
+            &::after{
+                content: "save 10%";
+                font-size: 0.5rem;
+                background-color: $blue;
+                border-radius: 80px 80px 80px 80px;
+                padding: 0.1rem;
+                margin-left: 0.2rem;
+                position: relative;
+                bottom: 0.15rem;
+                @include for-tablet-portrait-up{
+                    margin: 0.1rem 0;
+                }
+            }
+            @include for-tablet-portrait-up{
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        &--annually{
+            &::after{
+                content: "save 20%";
+                font-size: 0.5rem;
+                background-color: $blue;
+                border-radius: 80px 80px 80px 80px;
+                padding: 0.1rem;
+                margin-left: 0.2rem;
+                position: relative;
+                bottom: 0.15rem;
+                @include for-tablet-portrait-up{
+                    margin: 0.1rem 0;
+                    vertical-align: middle;
+                }
+            }
+            @include for-tablet-portrait-up{
+                width: fit-content;
+                display: flex;
+                flex-direction: column;
+            }
+        }       
+        @include for-tablet-portrait-up{
+            font-size: 0.8rem;
+        }
+        @include for-phone-only-small(){
+            font-size: 0.6rem;
+            padding: 0.5rem 0.5rem;
+        }
+    }  
+}
+.banner{
+    background-color: $blue;
+    grid-row: 2/3;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.3rem 0.3rem 0 0;
+    margin-bottom: -2.2rem;
+    z-index: 1;
+    color: $text-secondary;
+    &--inactive{
+        visibility: hidden;
+    }
+    @include for-tablet-portrait-up{
+        grid-column: 1/4;
+    }
+}
+.card{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    text-align: center;
+    padding: 1.5rem;
+    @include border-radius();
+    background-color: $bg-card;
+    cursor: default;
+    &--pro{
+        @include for-tablet-portrait-up{
+            grid-row: 3;
+        }
+    }
+    &__title{
+        font-size: 2.2rem;
+        margin-bottom: 0.2rem;
+        color: $text-secondary;
+    }
+    &__prices{
+        margin: 1.5rem;
+        &__full{
+            text-decoration: line-through;
+            &::before{
+                content: "$";
+            }
+        }
+        &__reduce{
+            font-size: 2.5rem;
+            color: $text-secondary;
+            &::before{
+                content: "$";
+            }
+        }
+        &__period{
+            font-size: 0.6rem;
+        }
+        &__billed{
+            font-size: 0.8rem;
+        }
+    }
+    &__list{
+        text-align: start;
+        justify-self: left;
+        line-height: 2rem;
+        &__items{
+            list-style-type: none;
+        }
+    }
+    &__button-action{
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0.8rem;
+        @include border-radius();
+        background-color: $blue;
+        color: $text-secondary;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0.1rem 0rem rgba(119, 119, 119, 0.514);
+        transition: all 0.1s linear;
+        &:hover{
+            background-color: darken($blue, 10%);
+        }
+        &:active{
+            box-shadow: 0 0.0rem 0.1rem rgba(119, 119, 119, 0.514);
+            transform: translateY(0.1rem);
+        }
+    }
+    @include for-tablet-portrait-up{
+        grid-column: 1/4;
+    }
+}
+.list-icon{
+    color: $blue;
+    background-color: rgba($blue, .10);
+    border-radius: 50%;
+}
+.original{
+    grid-column: 1/3;
+    background-color: rgba(lighten($bg-container, 50%), .10);
+    color: $text-secondary;
+    @include border-radius();
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    justify-self: center;
+    text-align: center;
+    opacity: 0.4;
+    transition: all 0.2s linear;
+    &:hover{
+        color: rgb(107, 107, 107);
+        opacity: 1;
+    }
+    &__link{
+        font-size: 0.8rem;
+        text-decoration: none;
+        &:visited{
+            color: whitesmoke;       
+        }       
+    }
+}
