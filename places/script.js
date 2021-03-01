@@ -51,11 +51,13 @@ previousSlide = () => {
 
 buttonRight.addEventListener("click", () =>{
     nextSlide();
-    slides.forEach((img) => {img.animate([{ transform: 'translate(-10rem, 0rem) rotateY(150deg) scale(0.5)', opacity:0, easing: "ease-out"},{ transform: 'translateX(0rem) rotateY(0deg) scale(1)', opacity:1 }], 300);})   
+    slides.forEach((img) => {img.animate([
+        { transform: 'translate(-10rem, 0rem) ', opacity:0, easing: "ease-out"},
+        { transform: 'translateX(0rem) ', opacity:1 }], 350);})   
 });
 buttonLeft.addEventListener("click", ()=>{
     previousSlide();
-    slides.forEach((img) => {img.animate([{ transform: 'translate(10rem, 0rem) rotateY(150deg) scale(0.5)', opacity:0, easing: "ease-out"},{ transform: 'translateX(0rem) rotateY(0deg) scale(1)', opacity:1 }], 300);})   
+    slides.forEach((img) => {img.animate([{ transform: 'translate(10rem, 0rem)', opacity:0, easing: "ease-out"},{ transform: 'translateX(0rem)', opacity:1 }], 350);})   
 });
 //end
 

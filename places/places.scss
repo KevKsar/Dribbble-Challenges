@@ -1,22 +1,23 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
-    font-family: sans-serif;
+  font-size: 62.5%;
+  font-family: sans-serif;
 }
 
 //colors var
 $background: #868396;
-$screen: #2E353F;
-$button: #868396 ;
-$buttonCat: #363C47;
-$iconNav: #E7E6EA;
-$tags: #272D36;
-$frameImg: #272D36;
-$text-primary: #E7E6EA;
+$screen: #2e353f;
+$button: #868396;
+$buttonCat: #363c47;
+$iconNav: #e7e6ea;
+$bg-nav-button: #8683960e;
+$tags: #272d36;
+$frameImg: #272d36;
+$text-primary: #e7e6ea;
 $text-secondary: darken($text-primary, 30);
 
 //style var
@@ -25,388 +26,447 @@ $radius-s: 2rem;
 $radius-pill: 50rem;
 $radius-circle: 50%;
 
-$font-size-xs: 0.8rem ; 
-$font-size-s: 1rem ; 
-$font-size-m: 1.5rem ; 
-$font-size-l: 2.5rem; 
+$font-size-xs: 0.8rem;
+$font-size-s: 1rem;
+$font-size-m: 1.5rem;
+$font-size-l: 2.5rem;
 
 //styles
+@mixin set-button(
+  $paddingX: 0.8rem,
+  $paddingY: 0.8rem,
+  $box: 4rem,
+  $radius: $radius-xs
+) {
+  @include box($box);
+  padding: $paddingX $paddingY;
+  font-size: 2rem;
+  border-radius: $radius;
+  color: $text-primary;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  &:hover {
+    background-color: $bg-nav-button;
+  }
+}
 @mixin box($width, $height: $width) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin flex-center() {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @mixin flex-center-column() {
-    @include flex-center;
-    flex-direction: column;
+  @include flex-center;
+  flex-direction: column;
 }
 
 @mixin flex-center-self-horiz() {
-    display: flex;
-    justify-self: center;
+  display: flex;
+  justify-self: center;
 }
 
 @mixin flex-center-self-vert() {
-    display: flex;
-    align-self: center;
+  display: flex;
+  align-self: center;
 }
 
 @mixin border-radius($radius) {
-    border-radius: $radius;
+  border-radius: $radius;
 }
 
-@mixin box-shadow {
-    box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.582) ;
+@mixin box-shadow($x: 0rem, $y: 0.5rem, $blur: 1rem) {
+  box-shadow: $x $y $blur rgba(0, 0, 0, 0.582);
 }
 
-@mixin transition-page{
-    transition: all 0.2s cubic-bezier(.96,.01,.98,.73);
+@mixin transition-page {
+  transition: all 0.2s cubic-bezier(0.96, 0.01, 0.98, 0.73);
 }
 
-@mixin transition-button{
-    transition: all 0.2s linear;
+@mixin transition-button {
+  transition: all 0.2s linear;
 }
 
-@mixin transition-image{
-    transition: all 0.2s linear;
+@mixin transition-image {
+  transition: all 0.2s linear;
 }
-
 
 ////////////////////////////////////////////////////
-body{
-    @include flex-center;
+body {
+  @include flex-center;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-.container{
-    @include box(80rem, 70rem);
-    @include flex-center;
-    @include border-radius($radius-s);
-    background-color: $background;
+.container {
+  @include box(80rem, 70rem);
+  @include flex-center;
+  @include border-radius($radius-s);
+  background-color: $background;
 }
 
 //start phone content
-.phone{
-    @include box(28rem, 57rem);
-    @include border-radius($radius-s);
-    background-color: rgb(43, 42, 42);
-    border-top: 10px solid #000000;
-    border-right: 5px solid #000000;
-    border-bottom: 10px solid #000000;
-    border-left: 5px solid #000000;
-    overflow: hidden;
-    display: grid;
-    grid-template-areas:
-                ". a ."
-                ". . ."
-                ". b .";
-    &__speaker{
-        grid-column: 2/ span 1;
-        grid-row: 1/ span 3;
-        z-index: 1;
-        background-color: black ;
-        @include box(10rem, 0.1rem);
-        border-radius: 0 0 2rem 2rem;
-        justify-self: center;
-    }
+.phone {
+  @include box(28rem, 57rem);
+  @include border-radius($radius-s);
+  @include box-shadow();
+  background-color: rgb(43, 42, 42);
+  border-top: 10px solid #000000;
+  border-right: 5px solid #000000;
+  border-bottom: 10px solid #000000;
+  border-left: 5px solid #000000;
+  overflow: hidden;
+  display: grid;
+  grid-template-areas:
+    ". a ."
+    ". . ."
+    ". b .";
+  &__speaker {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 3;
+    z-index: 100;
+    background-color: black;
+    @include box(10rem, 0.1rem);
+    border-radius: 0 0 2rem 2rem;
+    justify-self: center;
+  }
 }
-.notifBar{
-    grid-area: a;
-    z-index: 10;
+.notifBar {
+  grid-area: a;
+  z-index: 10;
 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    margin: 0.5rem 1rem;
-    color: $text-primary;
-    font-size: $font-size-s;
-    &__time{
-        font-weight: bold;
-    }
-    &__camera{
-        @include box(0.5rem);
-        @include flex-center-self-horiz;
-        background-color: rgb(24, 24, 24);
-        border: 0.4rem solid black;
-        border-radius: 50%
-    }    
-    &__states{
-        display: flex;
-        justify-self: end;
-    }
-    &__item{
-        margin: 0 0.2rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0.5rem 1rem;
+  color: $text-primary;
+  font-size: $font-size-s;
+  &__time {
+    font-weight: bold;
+  }
+  &__camera {
+    @include box(0.5rem);
+    @include flex-center-self-horiz;
+    background-color: rgb(24, 24, 24);
+    border: 0.4rem solid black;
+    border-radius: 50%;
+  }
+  &__states {
+    display: flex;
+    justify-self: end;
+  }
+  &__item {
+    margin: 0 0.2rem;
+  }
 }
-.nav{
-    // visibility: hidden;
-    grid-area: b;
-    z-index: 10;
+.nav {
+  grid-area: b;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-content: center;
+  color: $iconNav;
+  font-size: 1.5rem;
+  &__icon {
+    cursor: pointer;
+    text-align: center;
+    @include set-button();
+    @include box(6rem, 2rem);
+  }
+}
 
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    justify-items: center;
-    align-content: center;
-    color: $iconNav;
-    // background-color: transparentize(darken($screen, 5), 0.8); 
-    font-size: 1.5rem;
-    padding: 0.5rem 0;
-    &__icon{
-        cursor: pointer;
-    }
-}
 //End phone content
 
-
 //start signIn screen
-.screenSignIn{
-    // visibility: hidden;
-    grid-column: 2/ span 1;
-    grid-row: 1/ span 3;
-    z-index: 1;
+.screenSignIn {
+  // visibility: hidden;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 3;
+  z-index: 1;
 
-    @include box(100%, 100% );
-    background-image:
-    linear-gradient(to top, $screen, transparentize( $screen, 0.1)),
-    url('https://kevksar.github.io/images/mapbxl.jpg');
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    @include transition-page();
+  @include box(100%, 100%);
+  background-image: linear-gradient(
+      to top,
+      $screen,
+      transparentize($screen, 0.1)
+    ),
+    url("https://kevksar.github.io/images/mapbxl.jpg");
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  @include transition-page();
 }
-.logo{
-    @include flex-center-column();
-    align-self: center;
+.logo {
+  @include flex-center-column();
+  align-self: center;
+  color: $text-primary;
+  &__icon {
+    font-size: 4rem;
+    @include flex-center();
+    position: relative;
+    top: 1rem;
+    &--heart {
+      position: absolute;
+      bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: $screen;
+    }
+  }
+  &__title {
+    font-size: 5rem;
+    font-family: "Lobster", cursive;
+  }
+  &__slogan {
+    color: $text-secondary;
+    font-size: $font-size-m;
+  }
+}
+.connect {
+  @include flex-center-column();
+  align-self: flex-end;
+  margin-bottom: 4rem;
+  &__signButton {
+    text-align: center;
+    align-self: stretch;
+    padding: 1.5rem;
+    margin: 1rem 2rem;
+    background-color: $button;
     color: $text-primary;
-    &__icon{
-        font-size: 4rem;
-        @include flex-center();
-        position: relative;
-        top: 1rem;
-        &--heart{
-            position: absolute;
-            bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: $screen;
-        }
+    font-size: $font-size-m;
+    @include border-radius($radius-pill);
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    &:hover{
+        background-color: darken($button, 10)
     }
-    &__title{
-        font-size: 5rem;
-        font-family: 'Lobster', cursive;
-    }
-    &__slogan{
-        color: $text-secondary;
-        font-size: $font-size-m;
-    }
-}
-.connect{
-    @include flex-center-column();
-    align-self: flex-end;
-    margin-bottom: 4rem;
-    &__signButton{
-        text-align: center;
-        align-self: stretch;
-        padding: 1.5rem;
-        margin: 1rem 2rem;
-        background-color: $button;
-        color: $text-primary;
-        font-size: $font-size-m;
-        @include border-radius($radius-pill);
-        cursor: pointer;
-    }
-    &__createAccount{
-        margin-bottom: 2rem;
-        color: $text-secondary;
-        font-size: $font-size-s;
-        text-decoration: underline;
-        cursor: pointer;
-    }
+  }
+  &__createAccount {
+    margin-bottom: 2rem;
+    color: $text-secondary;
+    font-size: $font-size-s;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 //End signIn screen
 
 //Start favorite screen
-.screenFavorite{
-    visibility: hidden;
-    grid-column: 2/ span 1;
-    grid-row: 1/ span 3;
-    z-index: 2;
+.screenFavorite {
+  visibility: hidden;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 3;
+  z-index: 2;
 
+  display: flex;
+  flex-direction: column;
+  color: $text-primary;
+  background-color: $screen;
+  &__title {
+    font-size: $font-size-l;
+  }
+  &__avatar {
+    @include box(5rem);
+    @include border-radius($radius-circle);
+    align-self: center;
+  }
+  &__badgeNotif {
+    background-color: black;
+    @include box(2rem);
+    @include border-radius($radius-circle);
+    @include flex-center();
+    position: relative;
+    bottom: 2rem;
+    background-color: transparentize($tags, 0.1);
+    border: 0.1rem solid;
+  }
+  &__header {
     display: flex;
-    flex-direction: column;
-    color: $text-primary;
-    background-color: $screen ;
-    &__title{
-        font-size: $font-size-l;
-    }
-    &__avatar{
-        @include box(5rem, );
-        @include border-radius($radius-circle);
-        align-self: center;
-    }
-    &__badgeNotif{
-        background-color:black;
-        @include box(2rem);
-        @include border-radius($radius-circle);
-        @include flex-center();
-        position: relative;
-        bottom: 2rem;
-        background-color: transparentize($tags, 0.1);
-        border: 0.1rem solid ;
-    }
-    &__header{
-        display: flex;
-        margin: 1rem 2rem;
-        padding-top: 3rem;
-        justify-content: space-between;
-    }
-    &__categories{
-        font-size: $font-size-m;
-    }
-    &__addFavorite{
-        margin-left: 2rem;
-        font-size: $font-size-s;
-        color: $text-secondary;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-    @include transition-page();
-
-}
-.buttonCategory{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     margin: 1rem 2rem;
-    background-color: $buttonCat;
-    padding: 2rem;
-    @include border-radius($radius-xs);
-    @include box-shadow();
+    padding-top: 3rem;
+    justify-content: space-between;
+  }
+  &__categories {
+    font-size: $font-size-m;
+  }
+  &__addFavorite {
+    margin-left: 2rem;
+    font-size: $font-size-s;
+    color: $text-secondary;
+    text-decoration: underline;
     cursor: pointer;
-    &__icon-cat{
-        display: flex;
-    }
-    &__icon{
-        margin-right: 1rem;
-    }
-    &__title{
-    }
-    &__numPlaces{
-        justify-self: end;
-    }
+  }
+  @include transition-page();
+}
+.buttonCategory {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 1rem 2rem;
+  background-color: $buttonCat;
+  padding: 2rem;
+  @include border-radius($radius-xs);
+  @include box-shadow();
+  transition: all color 250ms ease-in-out;
+  cursor: pointer;
+  &__icon-cat {
+    display: flex;
+  }
+  &__icon {
+    margin-right: 1rem;
+  }
+  &__title {
+  }
+  &__numPlaces {
+    justify-self: end;
+  }
+  &:hover {
+    background-color: lighten($buttonCat, 10);
+    transform: scale(0.99);
+    @include box-shadow($blur: 0.4rem);
+  }
 }
 //End favorite screen
 
-.screenPlace{
-    visibility: hidden;
-    grid-column: 2/ span 1;
-    grid-row: 1/ span 3;
-    z-index: 3;
+.screenPlace {
+  visibility: hidden;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 3;
+  z-index: 3;
 
-    color: $text-primary;
-    background-color: $screen ;
-    &__map{
-        // visibility: hidden;
-        @include box(28rem, 20rem);
-    }
-    &__category{
-        @include flex-center-column();
-        position: relative;
-        bottom: 3rem;
-    }
-    &__iconBox{
-        @include box(6rem);
-        @include border-radius($radius-circle);
-        @include flex-center();
-        background-color: $screen;
-    }
-    &__icon{
-        @include box(2.5rem);
-        @include border-radius($radius-circle);
-        text-align: center;
-        font-size: 2.5rem;
-        border: 0.2rem solid;
-        padding: 1rem;
-    }
-    &__titleCategory{
-        font-size: $font-size-m;
-        margin-top: 1rem;
-        color: $text-secondary;
-    }
-    &__content{
-        @include flex-center-column();
-        margin-top: -2rem;
-        line-height: 2.5rem;
-    }
-    &__title{
-        font-size: $font-size-l;
-    }
-    &__adress{
-        color: $text-secondary;
-    }
-    &__tags{
-        display: flex;
-        margin-bottom: 1rem;
-    }
-    &__tag{
-        margin: 0.5rem 0.5rem;
-        color: $text-secondary;
-        background-color: $tags ;
-        font-size: $font-size-xs;
-        padding: 0 1rem;
-        @include border-radius($radius-pill);
-    }
+  color: $text-primary;
+  background-color: $screen;
+  &__map {
+    // visibility: hidden;
+    @include box(28rem, 20rem);
+  }
+  &__category {
+    @include flex-center-column();
+    position: relative;
+    bottom: 3rem;
+  }
+  &__iconBox {
+    @include box(6rem);
+    @include border-radius($radius-circle);
+    @include flex-center();
+    background-color: $screen;
+  }
+  &__icon {
+    @include box(2.5rem);
+    @include border-radius($radius-circle);
+    text-align: center;
+    font-size: 2.5rem;
+    border: 0.2rem solid;
+    padding: 1rem;
+  }
+  &__titleCategory {
+    font-size: $font-size-m;
+    margin-top: 1rem;
+    color: $text-secondary;
+  }
+  &__content {
+    @include flex-center-column();
+    margin-top: -2rem;
+    line-height: 2.5rem;
+  }
+  &__title {
+    font-size: $font-size-l;
+  }
+  &__adress {
+    color: $text-secondary;
+  }
+  &__tags {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  &__tag {
+    margin: 0.5rem 0.5rem;
+    color: $text-secondary;
+    background-color: $tags;
+    font-size: $font-size-xs;
+    padding: 0 1rem;
+    @include border-radius($radius-pill);
+  }
 }
 
-.slideBox{
-    @include flex-center-column();
-    border: 0.2rem solid $frameImg;
-    background-color: $frameImg ;
+.slideBox {
+  @include flex-center-column();
+  // border: 0.2rem solid $frameImg;
+  // background-color: $frameImg ;
+  // @include border-radius($radius-xs);
+  // box-shadow: inset 0 0 0.8rem #00000044;
+  &__image {
+    display: none;
+    width: 22rem;
     @include border-radius($radius-xs);
-    box-shadow: inset 0 0 0.8rem #00000044;
-    &__image{
-        display: none;
-        width: 22rem;
-        @include border-radius($radius-xs);
-        @include box-shadow();
-        &--active{
-            display: block;
-        }
+    // @include box-shadow();
+    &--active {
+      display: block;
     }
-    &__buttons{
-        display: flex;
-        position: absolute;
-        font-size: 2rem;
-        margin-bottom: 1rem;
+  }
+  &__buttons {
+    display: flex;
+    position: absolute;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  &__buttonLeft {
+    @include box(10rem, 13rem);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__buttonRight {
+    @include box(10rem, 13rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+  &__dots {
+    display: flex;
+    margin-top: 1rem;
+  }
+  &__dot {
+    @include box(0.5rem);
+    @include border-radius($radius-circle);
+    background-color: $text-secondary;
+    margin: 0 0.3rem;
+    transform: scale(1);
+    transition: all 0.2s ease-out;
+    &--active {
+      background-color: $text-primary;
+      transform: scale(1.5);
     }
-    &__buttonLeft{
-        @include box(10rem, 13rem );
-        display: flex;
-        align-items: center;
-        cursor: pointer;
+  }
+}
+
+.original {
+  grid-column: 1/3;
+  background-color: $background;
+  color: black;
+  font-weight: bold;
+  border-radius: $radius-xs;
+  padding: 1rem 1.5rem;
+  font-size: 1.6rem;
+  justify-self: center;
+  text-align: center;
+  opacity: 0.4;
+  transition: all 0.2s linear;
+  &:hover {
+    color: rgb(107, 107, 107);
+    opacity: 1;
+    color: white;
+  }
+  &__link {
+    font-size: 1.2rem;
+    text-decoration: none;
+    &:visited {
+      color: whitesmoke;
     }
-    &__buttonRight{
-        @include box(10rem, 13rem );
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        cursor: pointer;
-    }
-    &__dots{
-        display: flex;
-        margin-top: 1rem;
-    }
-    &__dot{
-        @include box(0.5rem);
-        @include border-radius($radius-circle);
-        background-color: $text-secondary;    
-        margin: 0 0.3rem; 
-        transform: scale(1);
-        transition: all 0.2s ease-out;
-        &--active{
-            background-color: $text-primary;
-            transform: scale(1.5);
-        }
-    }
+  }
 }
