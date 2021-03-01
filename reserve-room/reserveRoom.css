@@ -1,6 +1,19 @@
-.container {
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
-  background-color: #f4839e;
+}
+
+.container {
+  width: 40rem;
+  height: 30rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,9 +21,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: background-color 0.3S;
-  transition: background-color 0.3S;
   place-content: center;
+  background-color: #f4839e;
+  border-radius: 10px;
+  -webkit-transition: background-color 250ms;
+  transition: background-color 250ms;
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
 }
 
 .button {
@@ -19,6 +40,7 @@
   height: 110px;
   display: -ms-grid;
   display: grid;
+  margin: 3rem;
   cursor: pointer;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
@@ -30,6 +52,12 @@
           transform: scale(1);
   -webkit-transition: all 0.3s cubic-bezier(0.28, 1.95, 0.73, -0.9);
   transition: all 0.3s cubic-bezier(0.28, 1.95, 0.73, -0.9);
+}
+
+@media (max-width: 500px) {
+  .button {
+    width: 300px;
+  }
 }
 
 .button:hover {
@@ -78,8 +106,8 @@
 }
 
 .button__anim__dog {
-  -webkit-transition: 0.4s linear 0.2S;
-  transition: 0.4s linear 0.2S;
+  -webkit-transition: 0.4s linear 0.2s;
+  transition: 0.4s linear 0.2s;
   width: 1.8rem;
   height: 1.8rem;
   position: relative;
