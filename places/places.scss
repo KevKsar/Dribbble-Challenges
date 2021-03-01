@@ -241,7 +241,7 @@ body {
     font-size: $font-size-m;
     @include border-radius($radius-pill);
     cursor: pointer;
-    transition: all 250ms ease-in-out;
+    @include transition-button();
     &:hover{
         background-color: darken($button, 10)
     }
@@ -311,7 +311,7 @@ body {
   padding: 2rem;
   @include border-radius($radius-xs);
   @include box-shadow();
-  transition: all color 250ms ease-in-out;
+  @include transition-button();
   cursor: pointer;
   &__icon-cat {
     display: flex;
@@ -456,7 +456,7 @@ body {
   justify-self: center;
   text-align: center;
   opacity: 0.4;
-  transition: all 0.2s linear;
+  @include transition-button();
   &:hover {
     color: rgb(107, 107, 107);
     opacity: 1;

@@ -258,8 +258,8 @@ body {
   font-size: 1.5rem;
   border-radius: 50rem;
   cursor: pointer;
-  -webkit-transition: all 250ms ease-in-out;
-  transition: all 250ms ease-in-out;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .connect__signButton:hover {
@@ -363,8 +363,8 @@ body {
   border-radius: 1rem;
   -webkit-box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.582);
           box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.582);
-  -webkit-transition: all color 250ms ease-in-out;
-  transition: all color 250ms ease-in-out;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
   cursor: pointer;
 }
 
