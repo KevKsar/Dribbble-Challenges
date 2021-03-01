@@ -47,7 +47,7 @@ $font-size-l: 2.5rem;
   border: none;
   outline: none;
   cursor: pointer;
-  transition: all 0.2s linear;
+  transition: all 250ms ease-in-out;
   &:hover {
     background-color: $bg-nav-button;
   }
